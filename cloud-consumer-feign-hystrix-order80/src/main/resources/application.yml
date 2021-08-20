@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+#logging:
+#  level:
+#    # feign日志以什么级别监控哪个接口
+#    com.zq.learn.service.PaymentFeignClientService: debug
+
+# 用于服务降级 在注解@FeignClient中添加fallbackFactory属性值
+feign:
+  hystrix:
+    enabled: true #在Feign中开启Hystrix
