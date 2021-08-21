@@ -22,8 +22,14 @@ spring:
           predicates:
             - Path=/payment/lb/**         # 断言，路径相匹配的进行路由
             #- After=2020-02-21T15:51:37.485+08:00[Asia/Shanghai]
-            #- Cookie=username,zzyy
-            #- Header=X-Request-Id, \d+  # 请求头要有X-Request-Id属性并且值为整数的正则表达式
+            #- Before=2020-02-05T15:10:03.685+08:00[Asia/Shanghai]         # 断言，路径相匹配的进行路由
+            #- Between=2020-02-02T17:45:06.206+08:00[Asia/Shanghai],2020-03-25T18:59:06.206+08:00[Asia/Shanghai]
+            #- Cookie=username,hash # 键值对，可使用curl命令模拟请求
+            #- Header=X-Request-Id, \d+  # 请求头要有X-Request-Id属性并且值为整数的正则表达式，即属性名和正则表达式
+            #- Method=GET
+            #- Query=username, \d+  # 要有参数名username并且值还要是整数才能路由
+          #filters:
+            #- AddRequestParameter=X-Request-Id,1024 #过滤器工厂会在匹配的请求头加上一对请求头，名称为X-Request-Id值为1024
 
 eureka:
   instance:
