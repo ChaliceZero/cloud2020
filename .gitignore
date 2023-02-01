@@ -1,5 +1,6 @@
 # path
 target/
+.idea/
 
 # files
 *.iml
